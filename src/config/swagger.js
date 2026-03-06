@@ -6,7 +6,7 @@ const options = {
     openapi: '3.0.0',
     info: {
       title: 'FlyEdu/EduFlow API',
-      version: '0.1.0',
+      version: '0.2.0',
       description: 'API focada em LMS com integração de IA',
     },
     servers: [{ url: 'http://localhost:3000' }],
