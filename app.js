@@ -6,6 +6,7 @@ import helmet from "helmet";
 import authRoutes from "./src/routes/auth.routes.js";
 import courseRoutes from "./src/routes/course.routes.js";
 import { initDatabase } from "./src/config/schema.js";
+import { specs, swaggerUi } from './src/config/swagger.js';
 
 dotenv.config();
 
@@ -24,6 +25,8 @@ app.get("/health", (req, res) => {
 // Routes
 app.use("/api/auth", authRoutes);
 app.use('/api/courses', courseRoutes);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 
 initDatabase().then(() => {
