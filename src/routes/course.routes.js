@@ -3,6 +3,7 @@ import { verifyToken } from '../middlewares/auth.middleware.js';
 import { verifyRole } from '../middlewares/role.middleware.js';
 import * as courseController from '../controllers/course.controller.js';
 import * as contentController from '../controllers/content.controller.js';
+import * as quizController from '../controllers/quiz.controller.js';
 
 
 const router = Router();
@@ -37,6 +38,7 @@ router.get('/', courseController.listAll);
 router.post('/', verifyToken, verifyRole('instructor'), courseController.create);
 router.post('/:courseId/modules', verifyToken, verifyRole('instructor'), contentController.createModule);
 router.post('/:moduleId/lessons', verifyToken, verifyRole('instructor'), contentController.createLesson);
+router.post('/lessons/:lessonId/quiz', verifyToken, verifyRole('instructor'), quizController.create);
 
 // Rotas GET protegidas
 router.get('/:courseId/modules', verifyToken, contentController.listModulesByCourse);
