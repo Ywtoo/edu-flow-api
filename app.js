@@ -4,6 +4,7 @@ import cors from "cors";
 import helmet from "helmet";
 
 import authRoutes from "./src/routes/auth.routes.js";
+import courseRoutes from "./src/routes/course.routes.js";
 import { initDatabase } from "./src/config/schema.js";
 
 dotenv.config();
@@ -22,6 +23,7 @@ app.get("/health", (req, res) => {
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use('/api/courses', courseRoutes);
 
 
 initDatabase().then(() => {
