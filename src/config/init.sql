@@ -33,9 +33,7 @@ CREATE TABLE IF NOT EXISTS lessons (
 CREATE TABLE IF NOT EXISTS quizzes (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   lesson_id UUID REFERENCES lessons(id) ON DELETE CASCADE,
-  question TEXT NOT NULL,
-  options jsonb NOT NULL,
-  correct_answer TEXT,
-  ai_generated boolean DEFAULT true,
-  created_at TIMESTAMPTZ DEFAULT now()
+  questions JSONB NOT NULL,
+  ai_generated BOOLEAN DEFAULT TRUE,
+  created_at TIMESTAMPTZ DEFAULT NOW()
 );

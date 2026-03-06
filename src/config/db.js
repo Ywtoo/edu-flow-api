@@ -4,10 +4,10 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: process.env.USE_SSL === 'true' 
-    ? { rejectUnauthorized: false } 
-    : false
+    connectionString: process.env.DATABASE_URL,
+    ssl: process.env.USE_SSL === 'true'
+        ? { rejectUnauthorized: false }
+        : false
 });
 
 pool.connect((err) => {
