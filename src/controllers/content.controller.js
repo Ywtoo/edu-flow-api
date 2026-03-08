@@ -17,7 +17,7 @@ export const createModule = async (req, res) => {
 
 export const createLesson = async (req, res) => {
     try {
-        const { module_id } = req.params;
+        const { moduleId: module_id } = req.params;
         const { title, content_text } = req.body;
 
         const lessonID = await lessonRepository.create(module_id, title, content_text);
